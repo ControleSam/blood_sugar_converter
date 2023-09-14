@@ -15,29 +15,27 @@ generalInfo = "In general, the normal range for blood sugar may vary depending o
 
 
 def giveInfo():
-    with infos:
-        if st.session_state.mg < 70:
-            st.error(
-                "Your blood sugar level may be **too low**. Consult your doctor about this.",
-                icon="🚨",
-            )
-        elif st.session_state.mg > 130 and st.session_state.when == "Before meals":
-            st.error(
-                "Your blood sugar level may be **too high**. Consult your doctor about this.",
-                icon="🚨",
-            )
-        elif st.session_state.mg > 180 and st.session_state.when == "After meals":
-            st.error(
-                "Your blood sugar level may be **too high**. Consult your doctor about this.",
-                icon="🚨",
-            )
-        else:
-            st.balloons()
-            st.success(
-                "Your blood sugar level is within normal range :clap:.", icon="✅"
-            )
+    # with infos:
+    if st.session_state.mg < 70:
+        st.error(
+            "Your blood sugar level may be **too low**. Consult your doctor about this.",
+            icon="🚨",
+        )
+    elif st.session_state.mg > 130 and st.session_state.when == "Before meals":
+        st.error(
+            "Your blood sugar level may be **too high**. Consult your doctor about this.",
+            icon="🚨",
+        )
+    elif st.session_state.mg > 180 and st.session_state.when == "After meals":
+        st.error(
+            "Your blood sugar level may be **too high**. Consult your doctor about this.",
+            icon="🚨",
+        )
+    else:
+        st.balloons()
+        st.success("Your blood sugar level is within normal range :clap:.", icon="✅")
 
-        st.info(generalInfo, icon="ℹ️")
+    st.info(generalInfo, icon="ℹ️")
 
 
 def timeChange():
